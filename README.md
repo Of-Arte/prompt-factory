@@ -1,20 +1,57 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Prompt Factory
 
-# Run and deploy your AI Studio app
+A focused prompt engineering workbench for crafting, refining, and managing LLM prompt templates. Built as a portfolio project to explore agentic UX patterns and AI-assisted tooling.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/be7e57f6-867d-43d7-a798-d5a5ea8f3182
+- **AI-Guided Generation** — Describe your use case in plain language; Gemini drafts a structured template instantly
+- **Prompt Editor** — Markdown-aware editor with word/character/token metrics
+- **Enhance Suite** — Proofread, shorten, or optimize any prompt via Gemini with inline diff view
+- **History & Favorites** — Persistent prompt library with markdown preview cards
+- **5 Frontier Models** — Target prompts to Claude Fable 5, Claude Opus 4.8, Gemini 3.1 Pro, Gemini 3.5 Flash, or GPT-5.5
+- **Dark / Light mode** — System-aware theme toggle
 
-## Run Locally
+## Tech Stack
 
-**Prerequisites:**  Node.js
+- **React 18** + **TypeScript** — Component architecture with strict typing
+- **Vite** — Fast dev server and build tooling
+- **Tailwind CSS v4** — Utility-first styling with custom design tokens
+- **Google GenAI SDK** — Gemini API integration for generation and enhancement
+- **react-markdown** + **diff** — Markdown rendering and word-level diff highlighting
 
+## Getting Started
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+**Prerequisites:** Node.js ≥ 18
+
+```bash
+# Install dependencies
+npm install
+
+# Add your Gemini API key
+cp .env.example .env.local
+# Edit .env.local → VITE_GEMINI_API_KEY=your_key_here
+
+# Start dev server
+npm run dev
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── AIGuidedExplore.tsx   # Landing page — AI prompt generator
+│   ├── Editor.tsx            # Prompt editor with enhance modal
+│   ├── Feed.tsx              # History / favorites list view
+│   ├── Sidebar.tsx           # Navigation sidebar
+│   └── SpecCard.tsx          # Prompt preview card with markdown render
+├── App.tsx                   # Root layout and state management
+├── types.ts                  # Shared TypeScript types
+└── index.css                 # Design tokens and global styles
+```
+
+## Environment Variables
+
+| Variable | Description |
+|---|---|
+| `VITE_GEMINI_API_KEY` | Google Gemini API key ([get one here](https://aistudio.google.com/app/apikey)) |

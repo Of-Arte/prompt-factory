@@ -34,8 +34,8 @@ export function AIGuidedExplore({ onGenerate }: AIGuidedExploreProps) {
     try {
       const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY || process.env.GEMINI_API_KEY || '' });
       
-      const systemInstruction = `You are an expert prompt engineer and AI architect for 'Soul Factory'. 
-The user will describe what they need. They might ask for a system prompt for an OpenClaw agent, a 'Soul.md' for ClaudeCode, a 'skill.md' for agent skills, custom instructions for ChatGPT, or a Codex prompt.
+      const systemInstruction = `You are an expert prompt engineer and AI architect for 'Prompt Factory'. 
+The user will describe what they need. They might ask for a system prompt for an agent, a 'Soul.md' for ClaudeCode, a 'skill.md' for agent skills, custom instructions for ChatGPT, or a Codex prompt.
 Your job is to generate a highly structured, professional, and comprehensive prompt template for their specific use case.
 Use markdown formatting. Include clear placeholders like [INSERT_HERE] or {{VARIABLE}} for them to fill out later.
 Return ONLY the raw markdown template. Do not include conversational filler before or after the markdown.`;
@@ -62,7 +62,7 @@ Return ONLY the raw markdown template. Do not include conversational filler befo
 
       const newSpec: Spec = {
         id: Date.now().toString(),
-        author: 'Soul Factory AI',
+        author: 'Prompt Factory AI',
         authorHandle: 'ai_system',
         title: title,
         content: generatedContent,

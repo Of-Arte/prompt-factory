@@ -58,7 +58,6 @@ Output: [expected output]
 export default function App() {
   const [activeTab, setActiveTab] = useState('explore');
   const [historyStack, setHistoryStack] = useState<Spec[]>(MOCK_SPECS);
-  const [selectedSpec, setSelectedSpec] = useState<Spec | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editingSpec, setEditingSpec] = useState<Spec | null>(null);
   const [isNewSpec, setIsNewSpec] = useState(false);
@@ -109,13 +108,11 @@ export default function App() {
 
     setHistoryStack(prev => [newSpec, ...prev]);
     setEditingSpec(newSpec);
-    setSelectedSpec(newSpec);
     setIsNewSpec(true);
     setIsEditing(true);
   };
 
   const handleSpecClick = (spec: Spec) => {
-    setSelectedSpec(spec);
     setEditingSpec(spec);
     setIsNewSpec(false);
     setIsEditing(true);
@@ -123,34 +120,12 @@ export default function App() {
 
   const handleSpecChange = (updatedSpec: Spec) => {
     setEditingSpec(updatedSpec);
-    setSelectedSpec(updatedSpec);
     setHistoryStack(prev => prev.map(s => s.id === updatedSpec.id ? updatedSpec : s));
-  };
-
-  const handleFork = (specToFork: Spec) => {
-    const forkedSpec: Spec = {
-      ...specToFork,
-      id: Date.now().toString(),
-      author: 'User',
-      authorHandle: 'user',
-      title: `${specToFork.title} (Fork)`,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-      fork_of: specToFork.id,
-      forks: 0,
-      lastRefined: 'Just now',
-      isFavorite: false,
-    };
-    setHistoryStack(prev => [forkedSpec, ...prev]);
-    setEditingSpec(forkedSpec);
-    setSelectedSpec(forkedSpec);
-    setIsEditing(true);
   };
 
   const handleAIGeneratedSpec = (newSpec: Spec) => {
     setHistoryStack(prev => [newSpec, ...prev]);
     setEditingSpec(newSpec);
-    setSelectedSpec(newSpec);
     setIsEditing(true);
     setActiveTab('history');
   };

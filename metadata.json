@@ -1,0 +1,5 @@
+{
+  "name": "Soul Factory",
+  "description": "X Articles platform for LLM engineering workflows using Plan-Build-Verify (PBV) structure.",
+  "requestFramePermissions": []
+}

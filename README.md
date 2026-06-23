@@ -1,4 +1,4 @@
-# Prompt Factory
+# Prompt Builder
 
 A focused prompt engineering workbench for crafting, refining, and managing LLM prompt templates. Built as a portfolio project to explore agentic UX patterns and AI-assisted tooling.
 
@@ -8,16 +8,6 @@ A focused prompt engineering workbench for crafting, refining, and managing LLM 
 - **Prompt Editor** — Markdown-aware editor with word/character/token metrics
 - **Enhance Suite** — Proofread, shorten, or optimize any prompt via Gemini with inline diff view
 - **History & Favorites** — Persistent prompt library with markdown preview cards
-- **5 Frontier Models** — Target prompts to Claude Fable 5, Claude Opus 4.8, Gemini 3.1 Pro, Gemini 3.5 Flash, or GPT-5.5
-- **Dark / Light mode** — System-aware theme toggle
-
-## Tech Stack
-
-- **React 18** + **TypeScript** — Component architecture with strict typing
-- **Vite** — Fast dev server and build tooling
-- **Tailwind CSS v4** — Utility-first styling with custom design tokens
-- **Google GenAI SDK** — Gemini API integration for generation and enhancement
-- **react-markdown** + **diff** — Markdown rendering and word-level diff highlighting
 
 ## Getting Started
 

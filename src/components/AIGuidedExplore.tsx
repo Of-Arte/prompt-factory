@@ -99,8 +99,7 @@ Return ONLY the raw markdown template. Do not include conversational filler befo
         Describe your use case, and I'll craft a tailored prompt template for you.
       </p>
 
-      <div className="w-full relative group">
-        <div className="absolute -inset-1 bg-gradient-to-r from-accent to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+      <div className="w-full relative">
         <div className="relative bg-surface border border-border rounded-2xl p-2 flex items-center shadow-xl">
           <input
             type="text"

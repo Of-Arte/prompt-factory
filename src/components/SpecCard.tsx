@@ -26,13 +26,9 @@ export function SpecCard({ spec, onClick }: SpecCardProps) {
         {spec.title || 'Untitled Prompt'}
       </h3>
       
-      {/* Markdown preview — clipped to ~4 lines */}
-      <div className="relative mb-4 overflow-hidden max-h-[5.5rem]">
-        <div className="text-text-secondary text-sm leading-relaxed card-preview pointer-events-none select-none">
-          <Markdown>{spec.content || '*No content provided*'}</Markdown>
-        </div>
-        {/* Fade-out gradient at the bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[var(--color-surface)] to-transparent" />
+      {/* Markdown preview — clipped to 4 lines */}
+      <div className="mb-4 text-text-secondary text-sm leading-relaxed card-preview pointer-events-none select-none line-clamp-4">
+        <Markdown>{spec.content || '*No content provided*'}</Markdown>
       </div>
       
       <div className="flex flex-wrap items-center gap-4 text-text-secondary text-sm font-medium mb-4">

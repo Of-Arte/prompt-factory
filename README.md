@@ -1,4 +1,4 @@
-# Context Refinery
+# Prompt Builder
 
 A focused prompt engineering workbench for crafting, refining, and managing LLM prompt templates. Built as a portfolio project to explore agentic UX patterns and AI-assisted tooling.
 

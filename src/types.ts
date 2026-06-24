@@ -1,4 +1,4 @@
-export type Provider = 'Claude Fable 5' | 'Claude Opus 4.8' | 'Gemini 3.1 Pro' | 'Gemini 3.5 Flash' | 'GPT-5.5' | 'Grok Imagine' | 'ChatGPT' | 'Gemini';
+export type Provider = 'Claude' | 'Claude Fable 5' | 'Claude Opus 4.8' | 'Gemini 3.1 Pro' | 'Gemini 3.5 Flash' | 'GPT-5.5' | 'Grok Imagine' | 'ChatGPT' | 'Gemini' | 'Grok' | 'Qwen';
 
 export type TemplateType = string;
 

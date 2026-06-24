@@ -12,7 +12,11 @@ import { Spec } from './types';
 import { X } from 'lucide-react';
 
 const INITIAL_TEMPLATES: Record<string, string> = {
-  'AGENTS.md': '',
+  'AGENTS.md': `## System Prompt for Claude Agent\n\n# Role & Context\nYou are a highly capable AI agent built to... [describe the agent's role and domain context]\n\n# Objective\n[Specify the main task or problem the agent needs to solve]\n\n# Style and Tone\n- Clear, concise, and professional.\n- Avoid unnecessary preamble or conversational filler.\n\n# Response Format\nProvide output in well-structured Markdown format.`,
+  'SKILL.md': '',
+  'SOUL.md': '',
+  'IDENTITY.md': '',
+  'PLAN.md': '',
   'Image/Video Gen': `## Subject\n[What is the main subject of the image/video?]\n\n## Style & Aesthetic\n[e.g., Cinematic, 3D Render, Anime, Photorealistic]\n\n## Lighting & Composition\n[e.g., Golden hour, close-up, wide angle]\n\n## Action/Motion (Video)\n[Describe the movement or sequence of events]`
 };
 
@@ -21,33 +25,14 @@ const MOCK_SPECS: Spec[] = [
     id: '1',
     author: '',
     authorHandle: '',
-    title: 'Gemini Prompt Template',
-    content: `## Role
-You are a [describe the role, e.g. "senior software engineer", "creative writing coach", "data analyst"].
-
-## Context
-[Provide relevant background the model needs to understand the task. Include constraints, prior work, or domain knowledge.]
-
-## Task
-[Clearly state what you want Gemini to do. Be specific and action-oriented.]
-
-## Format
-[Specify the desired output format: bullet list, JSON, markdown table, code block, numbered steps, etc.]
-
-## Examples (optional)
-Input: [example input]
-Output: [expected output]
-
-## Constraints
-- Keep the response under [N] words / [N] lines
-- Avoid [things to exclude]
-- Prefer [style or tone preferences]`,
-    provider: 'Gemini 3.1 Pro',
-    templateType: 'Blank',
+    title: 'Agents.md',
+    content: INITIAL_TEMPLATES['AGENTS.md'],
+    provider: 'Claude',
+    templateType: 'AGENTS.md',
     visibility: 'private',
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
-    tags: ['template', 'gemini', 'starter'],
+    tags: ['template', 'claude', 'agents'],
     fork_of: null,
     forks: 0,
     lastRefined: 'Just now',
@@ -94,8 +79,8 @@ export default function App() {
       authorHandle: 'user',
       title: '',
       content: '',
-      provider: 'Claude Fable 5',
-      templateType: 'Image/Video Gen',
+      provider: 'Claude',
+      templateType: 'AGENTS.md',
       visibility: 'private',
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
@@ -155,27 +140,33 @@ export default function App() {
         onOpenSettings={() => setIsSettingsOpen(true)}
       />
 
-      <main className="flex-1 min-w-0 flex justify-center">
-        <div className="w-full max-w-4xl pt-8 px-4 sm:px-8 h-full">
-          {isEditing && editingSpec ? (
-            <Editor
-              key={editingSpec.id}
-              spec={editingSpec}
-              onChange={handleSpecChange}
-              templates={templates}
-              onAddTemplate={handleAddTemplate}
-              initialPreview={!isNewSpec}
-            />
-          ) : activeTab === 'explore' ? (
-            <AIGuidedExplore onGenerate={handleAIGeneratedSpec} />
-          ) : (
-            <Feed
-              specs={displayedSpecs}
-              onSpecClick={handleSpecClick}
-              title={feedTitle}
-              description={feedDescription}
-            />
-          )}
+      <main className="flex-1 min-w-0 flex flex-col items-center">
+        <div className="w-full max-w-4xl pt-8 px-4 sm:px-8 flex-1 flex flex-col">
+          <div className="flex-1">
+            {isEditing && editingSpec ? (
+              <Editor
+                key={editingSpec.id}
+                spec={editingSpec}
+                onChange={handleSpecChange}
+                templates={templates}
+                onAddTemplate={handleAddTemplate}
+                initialPreview={!isNewSpec}
+              />
+            ) : activeTab === 'explore' ? (
+              <AIGuidedExplore onGenerate={handleAIGeneratedSpec} />
+            ) : (
+              <Feed
+                specs={displayedSpecs}
+                onSpecClick={handleSpecClick}
+                title={feedTitle}
+                description={feedDescription}
+              />
+            )}
+          </div>
+          <footer className="py-8 border-t border-border mt-12 flex justify-between items-center text-xs text-text-secondary">
+            <span>Released under the MIT License</span>
+            <span>© {new Date().getFullYear()} of-arte</span>
+          </footer>
         </div>
       </main>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, ArrowRight, Bot } from 'lucide-react';
+import { Loader2, ArrowRight } from 'lucide-react';
 import { GoogleGenAI } from '@google/genai';
 import { Spec } from '../types';
 
@@ -89,9 +89,6 @@ Return ONLY the raw markdown template. Do not include conversational filler befo
 
   return (
     <div className="flex flex-col items-center justify-center h-full min-h-[70vh] max-w-3xl mx-auto px-4 animate-fade-in">
-      <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-8">
-        <Bot size={32} className="text-accent" />
-      </div>
       <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4 text-center tracking-tight">
         What are we building today?
       </h2>
@@ -116,7 +113,7 @@ Return ONLY the raw markdown template. Do not include conversational filler befo
             className="bg-accent text-white p-4 rounded-xl hover:opacity-90 disabled:opacity-50 transition-all flex items-center justify-center min-w-[56px]"
           >
             {isGenerating ? (
-              <Sparkles size={24} className="animate-pulse" />
+              <Loader2 size={24} className="animate-spin" />
             ) : (
               <ArrowRight size={24} />
             )}

@@ -8,7 +8,8 @@ import {
   ChevronLeft, 
   ChevronRight, 
   Sun, 
-  Moon 
+  Moon,
+  Github
 } from 'lucide-react';
 import { Spec } from '../types';
 
@@ -33,7 +34,7 @@ export function Sidebar({
   onToggleTheme,
   onOpenSettings,
 }: SidebarProps) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   const mainNavItems = [
     { 
@@ -62,7 +63,7 @@ export function Sidebar({
       {/* Collapse Toggle Button */}
       <button 
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute top-12 -right-3 w-6 h-6 rounded-full border border-border bg-bg-surface flex items-center justify-center text-text-secondary hover:text-text-primary shadow-md cursor-pointer z-50 transition-colors"
+        className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-1/2 w-6 h-6 rounded-full border border-border bg-bg-surface flex items-center justify-center text-text-secondary hover:text-text-primary shadow-md cursor-pointer z-50 transition-colors"
         title={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
       >
         {isCollapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
@@ -72,9 +73,9 @@ export function Sidebar({
       <div className={`p-4 flex flex-col gap-2 ${isCollapsed ? 'items-center' : ''}`}>
         <div className={`px-2 pb-4 pt-2 ${isCollapsed ? 'text-center' : ''}`}>
           {isCollapsed ? (
-            <h1 className="text-lg font-black text-text-primary tracking-tight">PF</h1>
+            <h1 className="text-2xl font-cursive font-bold text-text-primary">PF</h1>
           ) : (
-            <h1 className="text-xl font-extrabold text-text-primary tracking-tight whitespace-nowrap">
+            <h1 className="text-3xl font-cursive font-bold text-text-primary whitespace-nowrap">
               Prompt Factory
             </h1>
           )}
@@ -143,6 +144,22 @@ export function Sidebar({
           </div>
           {!isCollapsed && <span>Settings</span>}
         </button>
+        <a
+          href="https://github.com/Of-Arte/prompt-builder"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`w-full flex items-center gap-3 rounded-xl transition-all duration-200 font-medium ${
+            isCollapsed 
+              ? 'justify-center p-3' 
+              : 'px-4 py-3 text-sm'
+          } text-text-secondary hover:bg-gray-200/50 dark:hover:bg-gray-800/40 hover:text-text-primary`}
+          title={isCollapsed ? "GitHub Repository" : undefined}
+        >
+          <div className="text-text-secondary">
+            <Github size={20} />
+          </div>
+          {!isCollapsed && <span>GitHub Repo</span>}
+        </a>
       </div>
 
       {/* Recent Section */}

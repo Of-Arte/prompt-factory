@@ -1,6 +1,6 @@
 # Prompt Builder
 
-A focused, visual prompt engineering workbench for crafting, refining, and managing LLM prompt templates.
+# A focused, visual prompt engineering workbench for crafting, refining, and managing LLM prompt templates.
 ![Prompt Builder](./public/banner.png)
 
 ## Features

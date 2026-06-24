@@ -1,7 +1,7 @@
-# Prompt Builder
+# Prompt Factory
 
 A focused, visual prompt engineering workbench for crafting, refining, and managing LLM prompt templates.
-![Prompt Builder](./public/banner.png)
+![Prompt Factory](./public/banner.png)
 
 ## Features
 
@@ -29,8 +29,8 @@ A focused, visual prompt engineering workbench for crafting, refining, and manag
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/prompt-builder.git
-   cd prompt-builder
+   git clone https://github.com/your-username/prompt-factory.git
+   cd prompt-factory
    ```
 
 2. **Install dependencies:**

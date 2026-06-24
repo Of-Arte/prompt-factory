@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { 
+import {
   Plus,
-  Clock, 
-  Compass, 
-  Star, 
-  Settings, 
-  ChevronLeft, 
-  ChevronRight, 
-  Sun, 
+  Clock,
+  Compass,
+  Star,
+  Settings,
+  ChevronLeft,
+  ChevronRight,
+  Sun,
   Moon,
   Github
 } from 'lucide-react';
@@ -24,9 +24,9 @@ interface SidebarProps {
   onOpenSettings: () => void;
 }
 
-export function Sidebar({ 
-  activeTab, 
-  onTabChange, 
+export function Sidebar({
+  activeTab,
+  onTabChange,
   onCreateSpec,
   recentItems,
   onRecentClick,
@@ -37,31 +37,30 @@ export function Sidebar({
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   const mainNavItems = [
-    { 
-      id: 'explore', 
-      label: 'Explore', 
-      icon: <Compass size={20} /> 
+    {
+      id: 'explore',
+      label: 'Explore',
+      icon: <Compass size={20} />
     },
-    { 
-      id: 'history', 
-      label: 'History', 
-      icon: <Clock size={20} /> 
+    {
+      id: 'history',
+      label: 'History',
+      icon: <Clock size={20} />
     },
-    { 
-      id: 'favorites', 
-      label: 'Favorites', 
-      icon: <Star size={20} /> 
+    {
+      id: 'favorites',
+      label: 'Favorites',
+      icon: <Star size={20} />
     },
   ];
 
   return (
-    <div 
-      className={`relative hidden sm:flex h-screen sticky top-0 flex-col bg-bg-sidebar border-r border-border transition-all duration-300 ${
-        isCollapsed ? 'w-[72px]' : 'w-[260px]'
-      }`}
+    <div
+      className={`relative hidden sm:flex h-screen sticky top-0 flex-col bg-bg-sidebar border-r border-border transition-all duration-300 ${isCollapsed ? 'w-[72px]' : 'w-[260px]'
+        }`}
     >
       {/* Collapse Toggle Button */}
-      <button 
+      <button
         onClick={() => setIsCollapsed(!isCollapsed)}
         className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-1/2 w-6 h-6 rounded-full border border-border bg-bg-surface flex items-center justify-center text-text-secondary hover:text-text-primary shadow-md cursor-pointer z-50 transition-colors"
         title={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
@@ -82,11 +81,10 @@ export function Sidebar({
         </div>
 
         {/* New Prompt Button */}
-        <button 
+        <button
           onClick={onCreateSpec}
-          className={`w-full flex items-center gap-3 font-medium text-text-primary hover:bg-gray-200/50 dark:hover:bg-gray-800/50 rounded-xl transition-colors ${
-            isCollapsed ? 'justify-center p-3' : 'px-4 py-3 text-sm'
-          }`}
+          className={`w-full flex items-center gap-3 font-medium text-text-primary hover:bg-gray-200/50 dark:hover:bg-gray-800/50 rounded-xl transition-colors ${isCollapsed ? 'justify-center p-3' : 'px-4 py-3 text-sm'
+            }`}
           title={isCollapsed ? "New Prompt" : undefined}
         >
           <div className="bg-surface border border-border rounded-md p-1 shrink-0">
@@ -106,15 +104,13 @@ export function Sidebar({
             <button
               key={item.id}
               onClick={() => onTabChange(item.id)}
-              className={`w-full flex items-center gap-3 rounded-xl transition-all duration-200 font-medium ${
-                isCollapsed 
-                  ? 'justify-center p-3' 
-                  : 'px-4 py-3 text-sm'
-              } ${
-                isActive
+              className={`w-full flex items-center gap-3 rounded-xl transition-all duration-200 font-medium ${isCollapsed
+                ? 'justify-center p-3'
+                : 'px-4 py-3 text-sm'
+                } ${isActive
                   ? 'text-blue-500 bg-blue-500/10 border border-blue-500/20 dark:text-blue-400 dark:bg-blue-950/40 dark:border-blue-900/30'
                   : 'text-text-secondary hover:bg-gray-200/50 dark:hover:bg-gray-800/40 hover:text-text-primary'
-              }`}
+                }`}
               title={isCollapsed ? item.label : undefined}
             >
               <div className={isActive ? 'text-blue-500 dark:text-blue-400' : 'text-text-secondary'}>
@@ -132,11 +128,10 @@ export function Sidebar({
       <div className="p-4 flex flex-col gap-1.5">
         <button
           onClick={onOpenSettings}
-          className={`w-full flex items-center gap-3 rounded-xl transition-all duration-200 font-medium ${
-            isCollapsed 
-              ? 'justify-center p-3' 
-              : 'px-4 py-3 text-sm'
-          } text-text-secondary hover:bg-gray-200/50 dark:hover:bg-gray-800/40 hover:text-text-primary`}
+          className={`w-full flex items-center gap-3 rounded-xl transition-all duration-200 font-medium ${isCollapsed
+            ? 'justify-center p-3'
+            : 'px-4 py-3 text-sm'
+            } text-text-secondary hover:bg-gray-200/50 dark:hover:bg-gray-800/40 hover:text-text-primary`}
           title={isCollapsed ? "Settings" : undefined}
         >
           <div className="text-text-secondary">
@@ -145,14 +140,13 @@ export function Sidebar({
           {!isCollapsed && <span>Settings</span>}
         </button>
         <a
-          href="https://github.com/Of-Arte/prompt-builder"
+          href="https://github.com/Of-Arte/prompt-factory"
           target="_blank"
           rel="noopener noreferrer"
-          className={`w-full flex items-center gap-3 rounded-xl transition-all duration-200 font-medium ${
-            isCollapsed 
-              ? 'justify-center p-3' 
-              : 'px-4 py-3 text-sm'
-          } text-text-secondary hover:bg-gray-200/50 dark:hover:bg-gray-800/40 hover:text-text-primary`}
+          className={`w-full flex items-center gap-3 rounded-xl transition-all duration-200 font-medium ${isCollapsed
+            ? 'justify-center p-3'
+            : 'px-4 py-3 text-sm'
+            } text-text-secondary hover:bg-gray-200/50 dark:hover:bg-gray-800/40 hover:text-text-primary`}
           title={isCollapsed ? "GitHub Repository" : undefined}
         >
           <div className="text-text-secondary">
@@ -193,9 +187,8 @@ export function Sidebar({
         )}
         <button
           onClick={onToggleTheme}
-          className={`w-full flex items-center gap-3 justify-center rounded-xl border border-border bg-gray-50 hover:bg-gray-100 dark:bg-gray-800/40 dark:hover:bg-gray-800/70 text-text-primary transition-all duration-200 ${
-            isCollapsed ? 'p-3' : 'px-4 py-2.5 text-sm font-medium'
-          }`}
+          className={`w-full flex items-center gap-3 justify-center rounded-xl border border-border bg-gray-50 hover:bg-gray-100 dark:bg-gray-800/40 dark:hover:bg-gray-800/70 text-text-primary transition-all duration-200 ${isCollapsed ? 'p-3' : 'px-4 py-2.5 text-sm font-medium'
+            }`}
           title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
         >
           {isDarkMode ? (

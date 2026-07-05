@@ -1,12 +1,7 @@
 # Prompt Factory
 
-<<<<<<< HEAD
-A focused, visual prompt engineering workbench for crafting, refining, and managing LLM prompt templates.
-![Prompt Factory](./public/banner.png)
-=======
 # A focused, visual prompt engineering workbench for crafting, refining, and managing LLM prompt templates.
 ![Prompt Builder](./public/banner.png)
->>>>>>> 12567e64363dce51dc87296ebbadb61bef0f960e
 
 ## Features
 
